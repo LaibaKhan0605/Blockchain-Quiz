@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnonMixer DApp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AnonMixer DApp</h1>
+            <p>Privacy-Preserving Transactions with Zero-Knowledge Proofs</p>
+        </header>
+
+        <section class="card" id="deposit-section">
+            <h2>Deposit Funds</h2>
+            <div class="input-group">
+                <label for="depositSecret">Generate or Enter Secret:</label>
+                <input type="text" id="depositSecret" placeholder="Your secret key (e.g., a random string)">
+                <button onclick="generateSecret()">Generate Secret</button>
+            </div>
+            <button class="btn btn-primary" onclick="depositFunds()">Deposit Commitment</button>
+            <p id="depositStatus" class="status-message"></p>
+        </section>
+
+        <section class="card" id="withdraw-section">
+            <h2>Withdraw Funds</h2>
+            <div class="input-group">
+                <label for="withdrawSecret">Enter Your Secret Key:</label>
+                <input type="text" id="withdrawSecret" placeholder="The secret you used for deposit">
+            </div>
+            <button class="btn btn-secondary" onclick="withdrawFunds()">Withdraw</button>
+            <p id="withdrawStatus" class="status-message"></p>
+            <p id="anonymitySetInfo" class="info-message">Current Anonymity Set Size: <span id="anonymitySetCount">0</span> commitments</p>
+        </section>
+
+        <section class="card" id="system-status">
+            <h2>System Status</h2>
+            <div class="log-output">
+                <h3>Transaction Log</h3>
+                <ul id="transactionLog">
+                    <!-- Logs will be appended here -->
+                </ul>
+                <h3>Current Commitments in Pool</h3>
+                <ul id="commitmentList">
+                    <!-- Commitments will be loaded here -->
+                </ul>
+                <div class="status-info">
+                    <p><strong>Merkle Root:</strong> <span id="merkleRootDisplay">Loading...</span></p>
+                    <p><strong>Used Nullifiers:</strong> <span id="nullifierCountDisplay">0</span></p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

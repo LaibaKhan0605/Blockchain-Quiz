@@ -1,0 +1,512 @@
+/* Revamped for a more appealing and eye-catching professional look */
+
+:root {
+    --bg-gradient-start: #0a0e1b; /* Deep dark blue */
+    --bg-gradient-end: #12182c;   /* Slightly lighter dark blue */
+    --card-bg-color: rgba(25, 30, 48, 0.85); /* Slightly transparent for depth */
+    --text-color: #e2e8f0;       /* Off-white for general text */
+    --heading-color: #f0f4f8;    /* Lighter for main headings */
+    --primary-btn-color: #6a5acd; /* Royal Purple */
+    --secondary-btn-color: #8a2be2; /* Blue Violet */
+    --accent-color: #00bcd4;     /* Cyan for highlights and info */
+    --border-color: rgba(106, 90, 205, 0.3); /* Purple-tinted border */
+    --input-bg-color: #1a203c;   /* Darker input background */
+    --input-border-focus: #00bcd4; /* Cyan focus */
+    --success-color: #4caf50;    /* Standard green for success */
+    --error-color: #ef5350;      /* Standard red for error */
+    --info-color: #00bcd4;       /* Cyan for info messages */
+    --shadow-color: rgba(0, 0, 0, 0.7); /* Stronger shadow */
+    --glow-color-primary: rgba(106, 90, 205, 0.5); /* Purple glow */
+    --glow-color-accent: rgba(0, 188, 212, 0.4); /* Cyan glow */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 25px; /* Slightly more padding */
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    background-attachment: fixed; /* Keep gradient fixed on scroll */
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top */
+    min-height: 100vh;
+    font-size: 16px;
+    letter-spacing: 0.2px; /* Subtle letter spacing */
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px; /* Wider container */
+    background: rgba(18, 24, 44, 0.6); /* Slightly more opaque background for main container */
+    border-radius: 18px; /* More rounded corners */
+    overflow: hidden;
+    box-shadow: 0 25px 70px var(--shadow-color); /* Deep, soft shadow */
+    padding: 0;
+    backdrop-filter: blur(8px); /* Stronger blur for "frosted glass" effect */
+    border: 1px solid rgba(106, 90, 205, 0.2); /* Subtle border matching primary color */
+}
+
+header {
+    background: linear-gradient(90deg, #302b63 0%, #4a00e0 100%); /* Stronger, vibrant header gradient */
+    padding: 40px 50px; /* More padding */
+    text-align: center;
+    border-bottom: 2px solid rgba(0, 188, 212, 0.5); /* Cyan border */
+    color: var(--heading-color);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before { /* Subtle background pattern for header */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+header h1 {
+    margin: 0 0 15px;
+    font-size: 3.2em; /* Even larger heading */
+    font-weight: 700;
+    letter-spacing: 2px; /* More pronounced letter spacing */
+    text-shadow: 0 0 15px var(--glow-color-accent); /* Stronger cyan glow */
+    color: var(--heading-color);
+    position: relative;
+    z-index: 1;
+}
+
+header p {
+    font-size: 1.3em; /* Larger subheading */
+    opacity: 0.9;
+    font-weight: 400;
+    color: var(--text-color);
+    position: relative;
+    z-index: 1;
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    margin: 30px 50px; /* More margin */
+    padding: 40px; /* More padding */
+    border-radius: 15px; /* More rounded */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Clearer shadow */
+    border: 1px solid var(--border-color);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transitions */
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before { /* Subtle radial glow on cards */
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(106, 90, 205, 0.08) 0%, transparent 70%);
+    transition: transform 0.6s ease-out;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 0;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.005); /* Stronger lift, subtle scale */
+    box-shadow: 0 18px 45px var(--shadow-color), 0 0 20px var(--glow-color-primary); /* Enhanced shadow + glow */
+}
+
+.card:hover::before {
+    transform: translate(0%, 0%) scale(1);
+    opacity: 1;
+}
+
+h2 {
+    color: var(--heading-color);
+    font-size: 2.2em; /* Larger h2 */
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(0, 188, 212, 0.4); /* Cyan underline */
+    padding-bottom: 15px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    position: relative;
+    z-index: 1;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px; /* Spacing between input and button */
+    position: relative;
+    z-index: 1;
+}
+
+.input-group label {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.input-group input[type="text"] {
+    flex-grow: 1;
+    padding: 15px; /* Larger padding */
+    border: 1px solid var(--border-color);
+    border-radius: 10px; /* More rounded */
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+    font-size: 1.05em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    min-width: 250px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle inner shadow */
+}
+
+.input-group input[type="text"]:focus {
+    border-color: var(--input-border-focus);
+    box-shadow: 0 0 18px var(--glow-color-accent), inset 0 2px 5px rgba(0, 0, 0, 0.5); /* Cyan glow on focus */
+    background-color: #202644; /* Slightly lighter on focus */
+    outline: none;
+}
+
+.input-group button {
+    padding: 15px 25px; /* Larger padding */
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, var(--secondary-btn-color) 0%, #a76bff 100%); /* Gradient button */
+    color: white;
+    font-size: 1.05em;
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+}
+
+.input-group button:hover {
+    background: linear-gradient(45deg, #a76bff 0%, var(--secondary-btn-color) 100%); /* Reverse gradient on hover */
+    transform: translateY(-4px) scale(1.02); /* More pronounced lift and scale */
+    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.6), 0 0 15px rgba(138, 43, 226, 0.4); /* Stronger shadow + glow */
+}
+
+.btn {
+    padding: 18px 35px; /* Even larger buttons */
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.2s ease;
+    margin-top: 20px; /* More margin */
+    display: inline-block;
+    letter-spacing: 0.8px;
+    text-transform: uppercase; /* Uppercase text for buttons */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before { /* Button hover glow effect */
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-out, height 0.4s ease-out;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-btn-color) 0%, #9e7bbd 100%); /* Gradient button */
+    color: white;
+    box-shadow: 0 8px 20px rgba(106, 90, 205, 0.5);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #9e7bbd 0%, var(--primary-btn-color) 100%); /* Reverse gradient */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(106, 90, 205, 0.7), 0 0 20px var(--glow-color-primary);
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, var(--secondary-btn-color) 0%, #c476ff 100%); /* Gradient button */
+    color: white;
+    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.5);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(45deg, #c476ff 0%, var(--secondary-btn-color) 100%); /* Reverse gradient */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(138, 43, 226, 0.7), 0 0 20px rgba(138, 43, 226, 0.4);
+}
+
+.status-message {
+    margin-top: 30px;
+    padding: 18px; /* More padding */
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.6s ease-in-out, max-height 0.6s ease-in-out, padding 0.6s ease-in-out; /* Smoother transition */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05em;
+    position: relative;
+    z-index: 1;
+}
+
+.status-message.show {
+    opacity: 1;
+    max-height: 100px; /* More generous height */
+    padding: 18px;
+}
+
+.status-message.success {
+    background-color: rgba(76, 175, 80, 0.25); /* Slightly stronger tint */
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+}
+
+.status-message.error {
+    background-color: rgba(239, 83, 80, 0.25);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+    box-shadow: 0 0 15px rgba(239, 83, 80, 0.4);
+}
+
+.info-message {
+    margin-top: 35px;
+    text-align: center;
+    font-size: 1.1em;
+    color: var(--info-color);
+    opacity: 0.9;
+    font-weight: 500;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(0, 188, 212, 0.3); /* Cyan dashed border */
+    position: relative;
+    z-index: 1;
+}
+
+#anonymitySetCount {
+    font-weight: 700;
+    color: var(--accent-color);
+    font-size: 1.2em; /* Larger count */
+    text-shadow: 0 0 8px var(--glow-color-accent);
+}
+
+.log-output h3 {
+    color: var(--heading-color);
+    margin-top: 35px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed rgba(0, 188, 212, 0.3);
+    padding-bottom: 12px;
+    font-weight: 600;
+    font-size: 1.5em;
+    letter-spacing: 0.5px;
+}
+
+.log-output ul {
+    list-style: none;
+    padding: 0;
+    max-height: 300px; /* Taller log area */
+    overflow-y: auto;
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 18px 22px; /* More padding */
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4); /* Inner shadow */
+}
+
+.log-output ul li {
+    padding: 12px 0; /* More padding */
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+    font-family: 'Consolas', 'monospace';
+    font-size: 0.98em; /* Slightly larger log text */
+    color: var(--text-color);
+    word-break: break-all;
+}
+
+.log-output ul li:last-child {
+    border-bottom: none;
+}
+
+/* Scrollbar styling for a consistent look */
+.log-output ul::-webkit-scrollbar {
+    width: 10px; /* Wider scrollbar */
+}
+.log-output ul::-webkit-scrollbar-track {
+    background: var(--input-bg-color);
+    border-radius: 10px;
+}
+.log-output ul::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary-btn-color), var(--secondary-btn-color)); /* Gradient scrollbar */
+    border-radius: 10px;
+    border: 2px solid var(--input-bg-color); /* Border for thumb */
+    transition: background 0.3s ease;
+}
+.log-output ul::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #9e7bbd, #a76bff);
+}
+
+.status-info {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px dashed rgba(0, 188, 212, 0.3);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 1em;
+    color: var(--text-color);
+    gap: 15px; /* Spacing between info items */
+    position: relative;
+    z-index: 1;
+}
+
+.status-info p {
+    margin: 0;
+    text-align: center;
+    flex-basis: 45%; /* Allow two items per row */
+    min-width: 250px; /* Ensure they don't get too small */
+}
+
+.status-info span {
+    font-weight: 700;
+    color: var(--accent-color);
+    word-break: break-all;
+    text-shadow: 0 0 10px var(--glow-color-accent); /* Glow for key info */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    .container {
+        border-radius: 10px;
+    }
+    header {
+        padding: 30px 25px;
+    }
+    header h1 {
+        font-size: 2.5em;
+        letter-spacing: 1px;
+    }
+    header p {
+        font-size: 1.1em;
+    }
+    .card {
+        margin: 20px 25px;
+        padding: 30px;
+    }
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+    }
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .input-group input[type="text"] {
+        margin-bottom: 0; /* Gap handles spacing */
+        min-width: unset;
+        width: 100%;
+    }
+    .input-group button {
+        margin-left: 0;
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 1em;
+    }
+    .btn {
+        width: 100%;
+        padding: 16px 25px;
+        font-size: 1.1em;
+        margin-top: 15px;
+    }
+    .status-message {
+        padding: 15px;
+        font-size: 1em;
+    }
+    .info-message {
+        font-size: 0.95em;
+        padding-top: 15px;
+    }
+    .log-output h3 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+    .log-output ul {
+        max-height: 200px;
+        padding: 15px;
+    }
+    .log-output ul li {
+        font-size: 0.9em;
+        padding: 10px 0;
+    }
+    .status-info p {
+        flex-basis: 100%; /* Each info item takes full width */
+        min-width: unset;
+    }
+}
+
+/* Even smaller screens (e.g., mobile landscape) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    header p {
+        font-size: 0.9em;
+    }
+    .card {
+        margin: 15px 15px;
+        padding: 20px;
+    }
+    h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    .input-group label {
+        font-size: 1em;
+    }
+    .input-group input[type="text"] {
+        font-size: 0.95em;
+        padding: 12px;
+    }
+    .input-group button {
+        font-size: 0.95em;
+        padding: 12px 18px;
+    }
+    .btn {
+        font-size: 1em;
+        padding: 14px 20px;
+    }
+}
